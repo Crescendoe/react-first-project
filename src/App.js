@@ -9,6 +9,10 @@ const CurrentDate = (props) => {
   );
 };
 
+const List = (props) => {
+  return <p>{props.tasks.join(", ")}</p>;
+};
+
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
@@ -23,11 +27,29 @@ class Calendar extends React.Component {
   }
 }
 
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        <List tasks={["walk dog", "workout"]} />
+        <h2>Tomorrow</h2>
+        <List tasks={["read book", "cook dinner", "learn React"]} />
+      </div>
+    );
+  }
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <Calendar />
+        <ToDo />
       </header>
     </div>
   );

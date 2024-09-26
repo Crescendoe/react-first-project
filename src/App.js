@@ -1,8 +1,36 @@
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
-  const JSX = <h1>Hello JSX!</h1>;
-  return JSX;
+const CurrentDate = (props) => {
+  return (
+    <div>
+      <p>The current date is: {props.date}</p>
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        <CurrentDate date={Date()} />
+      </div>
+    );
+  }
 }
 
-export default App;
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Calendar />
+      </header>
+    </div>
+  );
+}
+
+export default Calendar;
